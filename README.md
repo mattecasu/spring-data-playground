@@ -10,6 +10,13 @@ basic textual search.
 
 Mongo is assumed to be running, its host and port to be specified
 in this application's yml file.
+Install and launch on Mac:
+```
+brew install mongodb
+brew services start mongodb
+
+```
+
 The integration tests are implemented as a BDD Cucumber feature.
 They make use of the Spring-Cucumber integration to launch the webapp
 and interact with the APIs.
