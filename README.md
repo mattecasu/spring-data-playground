@@ -26,7 +26,7 @@ The /payments endpoint supports pagination with the parameters
 to a non-perfect interaction between Springfox and Spring data).
 
 The API documentation is exposed via Springfox Swagger
-on `http://<host:port>/swagger-ui.html`.
+on `http://<host:port>/swagger-ui.html`. The endpoints are CORS-enabled.
 
 The project could have been based on SpringBoot 2 (webflux),
 but swagger wouldn't work:
