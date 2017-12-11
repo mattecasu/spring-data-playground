@@ -5,6 +5,9 @@ a compromise in the use of different libraries working together in the
 most seamless way to avoid boilerplate code whilst maintaining ease of
 use and of configuration.
 
+It provides standard CRUD functionalities over the model as well as a
+basic textual search.
+
 Mongo is assumed to be running, its host and port to be specified
 in this application's yml file.
 The integration tests are implemented as a BDD Cucumber feature.

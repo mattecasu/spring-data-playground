@@ -2,12 +2,15 @@ package playground;
 
 import com.google.common.collect.ImmutableMap;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import playground.exception.My400Exception;
@@ -37,9 +40,14 @@ public class Controller {
     private static final Integer NUMBER_OF_MOCKS = 4;
 
     @RequestMapping(value = "payments", method = GET)
-    public Map<String, Object> getAll(Pageable pageable) {
+    public Map<String, Object> getAll(Pageable pageable, @RequestParam(required = false) String beneficiary) {
+
+        Page<Payment> payments = StringUtils.isBlank(beneficiary) ?
+                paymentRepository.findAll(pageable) :
+                paymentRepository.findByBeneficiaryName(beneficiary, pageable);
+
         return ImmutableMap.of(
-                "data", paymentRepository.findAll(pageable),
+                "data", payments,
                 "links", ImmutableMap.of("self", getHal())
         );
     }

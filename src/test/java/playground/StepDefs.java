@@ -36,24 +36,7 @@ public class StepDefs extends SpringIntegrationTest {
                 .asJson().getStatus() == 200);
     }
 
-    @And("^the client POST a mock$")
-    public void mockData() throws Throwable {
-        response = post(url)
-                .header("Content-Type", "application/json")
-                .body(mockPayment().setId(null))
-                .asJson();
-        lastId = response.getBody().getObject().getString("id");
-    }
-
-    @And("^the client receives the POSTed object with id$")
-    public void verifyPostedMock() {
-        assertThat(
-                getUnirestObjectMapper().readValue(response.getBody().toString(), Payment.class).setLinks(null),
-                is(equalTo(mockPayment().setId(lastId)))
-        );
-    }
-
-    @And("^the client POST (\\d+) mocks$")
+    @And("^the client POST (\\d+) (?:mock|mocks)$")
     public void mockNData(Integer n) {
         MockPayments.getMockPayments(n).forEach(
                 mock -> {
@@ -69,6 +52,15 @@ public class StepDefs extends SpringIntegrationTest {
                 }
         );
     }
+
+    @And("^the client receives the POSTed object with id$")
+    public void verifyPostedMock() {
+        assertThat(
+                getUnirestObjectMapper().readValue(response.getBody().toString(), Payment.class).setLinks(null),
+                is(equalTo(mockPayment().setId(lastId)))
+        );
+    }
+
 
     @And("^the client POST a mock with id$")
     public void mockDataWithId() throws Throwable {
@@ -132,12 +124,24 @@ public class StepDefs extends SpringIntegrationTest {
         assertThat(response.getStatus(), is(equalTo(statusCode)));
     }
 
-    @And("^the client receives length (\\d+)$")
+    @And("^the client receives (\\d+) payments$")
     public void clientReceivesArrayOfLength(int size) throws JSONException {
-        assertTrue(response.getBody().getObject()
+        assertTrue(getResponseLength() == size);
+    }
+
+    @When("^the client GET /payments with beneficiary \"([^\"]*)\"$")
+    public void clientGetsPayments(String value) throws Throwable {
+        response = get(url)
+                .queryString("beneficiary", value)
+                .asJson();
+    }
+
+
+    private int getResponseLength() throws JSONException {
+        return response.getBody().getObject()
                 .getJSONObject("data")
                 .getJSONArray("content")
-                .length() == size);
+                .length();
     }
 
 }
