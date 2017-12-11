@@ -40,7 +40,7 @@ Feature: payments CRUD
 
   Scenario: the client gets paginated data
     Given the client POST 15 mocks
-    When the client GET /payments with page 2 and size 3
+    When the client GET /payments with page 2 size 3
     Then the client receives 3 payments
 
   Scenario Outline: the client gets payments by beneficiaryName
