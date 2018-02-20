@@ -56,7 +56,7 @@ public class StepDefs extends SpringIntegrationTest {
     @And("^the client receives the POSTed object with id$")
     public void verifyPostedMock() {
         assertThat(
-                getUnirestObjectMapper().readValue(response.getBody().toString(), Payment.class).setLinks(null),
+                getUnirestObjectMapper().readValue(response.getBody().toString(), Payment.class),
                 is(equalTo(mockPayment().setId(lastId)))
         );
     }
@@ -129,7 +129,7 @@ public class StepDefs extends SpringIntegrationTest {
         assertTrue(getResponseLength() == size);
     }
 
-    @When("^the client GET /payments with beneficiary \"([^\"]*)\"$")
+    @When("^the client GET /payments with beneficiaryName \"([^\"]*)\"$")
     public void clientGetsPayments(String value) throws Throwable {
         response = get(url)
                 .queryString("beneficiary", value)
@@ -138,9 +138,9 @@ public class StepDefs extends SpringIntegrationTest {
 
 
     private int getResponseLength() throws JSONException {
-        return response.getBody().getObject()
-                .getJSONObject("data")
-                .getJSONArray("content")
+        return response.getBody().getArray()
+//                .getJSONObject("data")
+//                .getJSONArray("content")
                 .length();
     }
 

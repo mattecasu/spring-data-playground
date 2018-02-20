@@ -3,21 +3,23 @@ package playground;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
+import org.springframework.web.reactive.config.EnableWebFlux;
 import playground.config.UnirestMapperConfig;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
-public class App extends SpringBootServletInitializer {
+@EnableWebFlux
+@EnableReactiveMongoRepositories
+public class App {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(App.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources(App.class);
+//    }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
 

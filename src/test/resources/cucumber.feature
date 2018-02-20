@@ -38,10 +38,10 @@ Feature: payments CRUD
     And the client DELETE a payment
     Then the client receives status code of 200
 
-  Scenario: the client gets paginated data
-    Given the client POST 15 mocks
-    When the client GET /payments with page 2 size 3
-    Then the client receives 3 payments
+#  Scenario: the client gets paginated data
+#    Given the client POST 15 mocks
+#    When the client GET /payments with page 2 size 3
+#    Then the client receives 3 payments
 
   Scenario Outline: the client gets payments by beneficiaryName
     Given the client POST 15 mocks

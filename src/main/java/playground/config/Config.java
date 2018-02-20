@@ -3,17 +3,18 @@ package playground.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.mongodb.MongoClient;
+import com.mongodb.reactivestreams.client.MongoClient;
+import com.mongodb.reactivestreams.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
+import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
+import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @SpringBootConfiguration
-@EnableMongoRepositories("playground.repo")
-public class Config extends AbstractMongoConfiguration {
+@EnableReactiveMongoRepositories("playground.repo")
+public class Config extends AbstractReactiveMongoConfiguration {
 
 
     @Value("${mongo.host}")
@@ -33,8 +34,8 @@ public class Config extends AbstractMongoConfiguration {
     }
 
     @Override
-    public MongoClient mongo() {
-        return new MongoClient(host, Integer.valueOf(port));
+    public MongoClient reactiveMongoClient() {
+        return MongoClients.create("mongodb://" + host + ":" + Integer.valueOf(port));
     }
 
     @Override
@@ -43,8 +44,9 @@ public class Config extends AbstractMongoConfiguration {
     }
 
     @Bean
-    public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(mongo(), getDatabaseName());
+    public ReactiveMongoTemplate mongoTemplate() {
+        return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
     }
+
 
 }

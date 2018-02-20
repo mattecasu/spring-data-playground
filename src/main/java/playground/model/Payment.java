@@ -39,10 +39,10 @@ public class Payment {
     @Setter
     private PaymentAttributes attributes;
 
-    @Getter
-    @Setter
-    @Transient
-    private Map<String, Object> links;
+//    @Getter
+//    @Setter
+//    @Transient
+//    private Map<String, Object> links;
 
 
     public Payment() {
