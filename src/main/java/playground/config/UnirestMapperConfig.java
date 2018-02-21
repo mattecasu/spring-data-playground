@@ -14,9 +14,7 @@ public class UnirestMapperConfig {
   public static ObjectMapper getUnirestObjectMapper() {
     return new ObjectMapper() {
       private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
-          = new com.fasterxml.jackson.databind.ObjectMapper()
-          //    .setPropertyNamingStrategy(Config.fieldNamesStrategy)
-          ;
+          = new com.fasterxml.jackson.databind.ObjectMapper();
 
       public <T> T readValue(String value, Class<T> valueType) {
         try {

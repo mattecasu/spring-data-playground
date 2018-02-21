@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @SpringBootConfiguration
-@EnableReactiveMongoRepositories("playground.repo")
 public class Config extends AbstractReactiveMongoConfiguration {
 
 
@@ -44,7 +43,7 @@ public class Config extends AbstractReactiveMongoConfiguration {
   }
 
   @Bean
-  public ReactiveMongoTemplate mongoTemplate() {
+  public ReactiveMongoTemplate reactiveMongoTemplate() {
     return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
   }
 
