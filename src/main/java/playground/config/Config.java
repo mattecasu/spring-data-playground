@@ -17,36 +17,36 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 public class Config extends AbstractReactiveMongoConfiguration {
 
 
-    @Value("${mongo.host}")
-    private String host;
+  @Value("${mongo.host}")
+  private String host;
 
-    @Value("${mongo.port}")
-    private String port;
+  @Value("${mongo.port}")
+  private String port;
 
-    @Value("${mongo.db.name}")
-    private String dbName;
+  @Value("${mongo.db.name}")
+  private String dbName;
 
-    public static PropertyNamingStrategy fieldNamesStrategy = new PropertyNamingStrategy.SnakeCaseStrategy();
+//  public static PropertyNamingStrategy fieldNamesStrategy = new PropertyNamingStrategy.SnakeCaseStrategy();
 
-    @Bean
-    public ObjectMapper jacksonObjectMapper() {
-        return new ObjectMapper().setPropertyNamingStrategy(fieldNamesStrategy);
-    }
+//  @Bean
+//  public ObjectMapper jacksonObjectMapper() {
+//    return new ObjectMapper().setPropertyNamingStrategy(fieldNamesStrategy);
+//  }
 
-    @Override
-    public MongoClient reactiveMongoClient() {
-        return MongoClients.create("mongodb://" + host + ":" + Integer.valueOf(port));
-    }
+  @Override
+  public MongoClient reactiveMongoClient() {
+    return MongoClients.create("mongodb://" + host + ":" + Integer.valueOf(port));
+  }
 
-    @Override
-    protected String getDatabaseName() {
-        return dbName;
-    }
+  @Override
+  protected String getDatabaseName() {
+    return dbName;
+  }
 
-    @Bean
-    public ReactiveMongoTemplate mongoTemplate() {
-        return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
-    }
+  @Bean
+  public ReactiveMongoTemplate mongoTemplate() {
+    return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
+  }
 
 
 }
