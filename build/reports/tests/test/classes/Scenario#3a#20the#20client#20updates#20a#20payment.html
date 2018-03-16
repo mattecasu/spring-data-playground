@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.124s</div>
+<div class="counter">0.120s</div>
 <p>duration</p>
 </div>
 </td>
@@ -104,7 +104,7 @@
 </tr>
 <tr>
 <td class="success">classMethod</td>
-<td>0.124s</td>
+<td>0.120s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -112,10 +112,10 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2018-03-16 16:14:28.270  INFO 19250 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [playground.SpringIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2018-03-16 16:14:28.273  INFO 19250 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-2018-03-16 16:14:28.274  INFO 19250 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3bf80fc2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@69e9bf9c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@733ab312, org.springframework.test.context.support.DirtiesContextTestExecutionListener@252867c1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5e55fab9, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7a64abb0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5ce035cd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3a9057ff, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4b61f226, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1487f9d1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4914e8d1]
-2018-03-16 16:14:28.274  INFO 19250 --- [    Test worker] o.s.b.f.s.DefaultListableBeanFactory     : Replacing scope 'cucumber-glue' from [cucumber.runtime.java.spring.GlueCodeScope@710371a3] to [cucumber.runtime.java.spring.GlueCodeScope@35375d67]
+<pre>2018-03-16 16:20:17.186  INFO 19389 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [playground.SpringIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-03-16 16:20:17.190  INFO 19389 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-03-16 16:20:17.190  INFO 19389 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@393210ee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1a8ee950, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2562ef6a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@68003250, org.springframework.test.context.transaction.TransactionalTestExecutionListener@411cfade, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2cb55fc4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1e1efc87, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7765cfa6, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5109019e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@57c42f04, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3e571bbf]
+2018-03-16 16:20:17.191  INFO 19389 --- [    Test worker] o.s.b.f.s.DefaultListableBeanFactory     : Replacing scope 'cucumber-glue' from [cucumber.runtime.java.spring.GlueCodeScope@6716fb2c] to [cucumber.runtime.java.spring.GlueCodeScope@7e8a03a1]
 
   Scenario: reactive POST        ?[90m# cucumber.feature:9?[0m
     ?[32mGiven ?[0m?[32mthe client POST ?[0m?[32m?[1m1?[0m?[32m mock?[0m ?[90m# StepDefs.mockNData(Integer)?[0m
@@ -130,7 +130,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.5.1</a> at 16-Mar-2018 16:14:29</p>
+<a href="http://www.gradle.org">Gradle 4.5.1</a> at 16-Mar-2018 16:20:18</p>
 </div>
 </div>
 </body>

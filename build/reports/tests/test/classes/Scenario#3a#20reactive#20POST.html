@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">4.714s</div>
+<div class="counter">4.812s</div>
 <p>duration</p>
 </div>
 </td>
@@ -102,7 +102,7 @@
 </tr>
 <tr>
 <td class="success">classMethod</td>
-<td>4.714s</td>
+<td>4.812s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -119,7 +119,7 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.0.0.RELEASE)
 
-2018-03-16 16:14:24.263  WARN 19250 --- [    Test worker] ory$DuplicateJsonObjectContextCustomizer : 
+2018-03-16 16:20:13.193  WARN 19389 --- [    Test worker] ory$DuplicateJsonObjectContextCustomizer : 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -128,48 +128,48 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2018-03-16 16:14:24.277  INFO 19250 --- [    Test worker] playground.StepDefs                      : Starting StepDefs on b-0426.local with PID 19250 (started by matteo.casu in /Users/matteo.casu/Documents/workspace/spring-data-playground)
-2018-03-16 16:14:24.277  INFO 19250 --- [    Test worker] playground.StepDefs                      : No active profile set, falling back to default profiles: default
-2018-03-16 16:14:24.303  INFO 19250 --- [    Test worker] onfigReactiveWebServerApplicationContext : Refreshing org.springframework.boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext@37dda2: startup date [Fri Mar 16 16:14:24 GMT 2018]; root of context hierarchy
-2018-03-16 16:14:25.486  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/mock],methods=[GET]}&quot; onto public reactor.core.publisher.Flux&lt;playground.model.Payment&gt; playground.web.Controller.getMock()
-2018-03-16 16:14:25.489  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/{id}],methods=[GET]}&quot; onto public reactor.core.publisher.Mono&lt;playground.model.Payment&gt; playground.web.Controller.getPayment(java.lang.String)
-2018-03-16 16:14:25.490  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments],methods=[POST]}&quot; onto public reactor.core.publisher.Mono&lt;playground.model.Payment&gt; playground.web.Controller.postPayment(playground.model.Payment)
-2018-03-16 16:14:25.490  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/{id}],methods=[PUT]}&quot; onto public reactor.core.publisher.Mono&lt;playground.model.Payment&gt; playground.web.Controller.updateCustomer(playground.model.Payment,java.lang.String)
-2018-03-16 16:14:25.491  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments],methods=[DELETE]}&quot; onto public reactor.core.publisher.Mono&lt;java.lang.Void&gt; playground.web.Controller.deleteAll()
-2018-03-16 16:14:25.492  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/{id}],methods=[DELETE]}&quot; onto public reactor.core.publisher.Mono&lt;java.lang.Void&gt; playground.web.Controller.deletePayment(java.lang.String)
-2018-03-16 16:14:25.493  INFO 19250 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments],methods=[GET]}&quot; onto public reactor.core.publisher.Flux&lt;playground.model.Payment&gt; playground.web.Controller.getAll(java.lang.String)
-2018-03-16 16:14:25.754  INFO 19250 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2018-03-16 16:14:25.835  INFO 19250 --- [127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:90}] to 127.0.0.1:27017
-2018-03-16 16:14:25.840  INFO 19250 --- [127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3581315}
-2018-03-16 16:14:26.176  INFO 19250 --- [    Test worker] .b.a.e.w.r.WebFluxEndpointHandlerMapping : Mapped &quot;{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}&quot; onto public org.reactivestreams.Publisher&lt;org.springframework.http.ResponseEntity&lt;java.lang.Object&gt;&gt; org.springframework.boot.actuate.endpoint.web.reactive.AbstractWebFluxEndpointHandlerMapping$ReadOperationHandler.handle(org.springframework.web.server.ServerWebExchange)
-2018-03-16 16:14:26.177  INFO 19250 --- [    Test worker] .b.a.e.w.r.WebFluxEndpointHandlerMapping : Mapped &quot;{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}&quot; onto public org.reactivestreams.Publisher&lt;org.springframework.http.ResponseEntity&lt;java.lang.Object&gt;&gt; org.springframework.boot.actuate.endpoint.web.reactive.AbstractWebFluxEndpointHandlerMapping$ReadOperationHandler.handle(org.springframework.web.server.ServerWebExchange)
-2018-03-16 16:14:26.178  INFO 19250 --- [    Test worker] .b.a.e.w.r.WebFluxEndpointHandlerMapping : Mapped &quot;{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}&quot; onto protected java.util.Map&lt;java.lang.String, java.util.Map&lt;java.lang.String, org.springframework.boot.actuate.endpoint.web.Link&gt;&gt; org.springframework.boot.actuate.endpoint.web.reactive.WebFluxEndpointHandlerMapping.links(org.springframework.web.server.ServerWebExchange)
-2018-03-16 16:14:26.232  INFO 19250 --- [    Test worker] o.s.w.r.r.m.a.ControllerMethodResolver   : Looking for @ControllerAdvice: org.springframework.boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext@37dda2: startup date [Fri Mar 16 16:14:24 GMT 2018]; root of context hierarchy
-2018-03-16 16:14:26.894  INFO 19250 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2018-03-16 16:14:26.899  INFO 19250 --- [127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:91}] to 127.0.0.1:27017
-2018-03-16 16:14:26.901  INFO 19250 --- [127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1261468}
-2018-03-16 16:14:27.036  INFO 19250 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2018-03-16 16:14:27.050  INFO 19250 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:92}] to localhost:27017
-2018-03-16 16:14:27.051  INFO 19250 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=511005}
-2018-03-16 16:14:27.106  INFO 19250 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2018-03-16 16:14:27.205  INFO 19250 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:93}] to localhost:27017
-2018-03-16 16:14:27.208  INFO 19250 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2628991}
-2018-03-16 16:14:27.446  INFO 19250 --- [server-kqueue-9] r.ipc.netty.tcp.BlockingNettyContext     : Started HttpServer on /0:0:0:0:0:0:0:0%0:8080
-2018-03-16 16:14:27.448  INFO 19250 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8080
-2018-03-16 16:14:27.451  INFO 19250 --- [    Test worker] playground.StepDefs                      : Started StepDefs in 3.538 seconds (JVM running for 4.848)
-2018-03-16 16:14:27.841  INFO 19250 --- [       Thread-7] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:94}] to 127.0.0.1:27017
+2018-03-16 16:20:13.209  INFO 19389 --- [    Test worker] playground.StepDefs                      : Starting StepDefs on b-0426.local with PID 19389 (started by matteo.casu in /Users/matteo.casu/Documents/workspace/spring-data-playground)
+2018-03-16 16:20:13.209  INFO 19389 --- [    Test worker] playground.StepDefs                      : No active profile set, falling back to default profiles: default
+2018-03-16 16:20:13.229  INFO 19389 --- [    Test worker] onfigReactiveWebServerApplicationContext : Refreshing org.springframework.boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext@959b7b0: startup date [Fri Mar 16 16:20:13 GMT 2018]; root of context hierarchy
+2018-03-16 16:20:14.426  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments],methods=[GET]}&quot; onto public reactor.core.publisher.Flux&lt;playground.model.Payment&gt; playground.web.Controller.getAll(java.lang.String)
+2018-03-16 16:20:14.428  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/mock],methods=[GET]}&quot; onto public reactor.core.publisher.Flux&lt;playground.model.Payment&gt; playground.web.Controller.getMock()
+2018-03-16 16:20:14.429  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/{id}],methods=[GET]}&quot; onto public reactor.core.publisher.Mono&lt;playground.model.Payment&gt; playground.web.Controller.getPayment(java.lang.String)
+2018-03-16 16:20:14.429  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments],methods=[POST]}&quot; onto public reactor.core.publisher.Mono&lt;playground.model.Payment&gt; playground.web.Controller.postPayment(playground.model.Payment)
+2018-03-16 16:20:14.430  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/{id}],methods=[PUT]}&quot; onto public reactor.core.publisher.Mono&lt;playground.model.Payment&gt; playground.web.Controller.updateCustomer(playground.model.Payment,java.lang.String)
+2018-03-16 16:20:14.430  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments],methods=[DELETE]}&quot; onto public reactor.core.publisher.Mono&lt;java.lang.Void&gt; playground.web.Controller.deleteAll()
+2018-03-16 16:20:14.431  INFO 19389 --- [    Test worker] s.w.r.r.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/payments/{id}],methods=[DELETE]}&quot; onto public reactor.core.publisher.Mono&lt;java.lang.Void&gt; playground.web.Controller.deletePayment(java.lang.String)
+2018-03-16 16:20:14.716  INFO 19389 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-03-16 16:20:14.794  INFO 19389 --- [127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:100}] to 127.0.0.1:27017
+2018-03-16 16:20:14.799  INFO 19389 --- [127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3415248}
+2018-03-16 16:20:15.134  INFO 19389 --- [    Test worker] .b.a.e.w.r.WebFluxEndpointHandlerMapping : Mapped &quot;{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}&quot; onto public org.reactivestreams.Publisher&lt;org.springframework.http.ResponseEntity&lt;java.lang.Object&gt;&gt; org.springframework.boot.actuate.endpoint.web.reactive.AbstractWebFluxEndpointHandlerMapping$ReadOperationHandler.handle(org.springframework.web.server.ServerWebExchange)
+2018-03-16 16:20:15.135  INFO 19389 --- [    Test worker] .b.a.e.w.r.WebFluxEndpointHandlerMapping : Mapped &quot;{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}&quot; onto public org.reactivestreams.Publisher&lt;org.springframework.http.ResponseEntity&lt;java.lang.Object&gt;&gt; org.springframework.boot.actuate.endpoint.web.reactive.AbstractWebFluxEndpointHandlerMapping$ReadOperationHandler.handle(org.springframework.web.server.ServerWebExchange)
+2018-03-16 16:20:15.136  INFO 19389 --- [    Test worker] .b.a.e.w.r.WebFluxEndpointHandlerMapping : Mapped &quot;{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}&quot; onto protected java.util.Map&lt;java.lang.String, java.util.Map&lt;java.lang.String, org.springframework.boot.actuate.endpoint.web.Link&gt;&gt; org.springframework.boot.actuate.endpoint.web.reactive.WebFluxEndpointHandlerMapping.links(org.springframework.web.server.ServerWebExchange)
+2018-03-16 16:20:15.188  INFO 19389 --- [    Test worker] o.s.w.r.r.m.a.ControllerMethodResolver   : Looking for @ControllerAdvice: org.springframework.boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext@959b7b0: startup date [Fri Mar 16 16:20:13 GMT 2018]; root of context hierarchy
+2018-03-16 16:20:15.641  INFO 19389 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-03-16 16:20:15.652  INFO 19389 --- [127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:101}] to 127.0.0.1:27017
+2018-03-16 16:20:15.653  INFO 19389 --- [127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=866477}
+2018-03-16 16:20:15.889  INFO 19389 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-03-16 16:20:15.903  INFO 19389 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:102}] to localhost:27017
+2018-03-16 16:20:15.904  INFO 19389 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=528147}
+2018-03-16 16:20:15.953  INFO 19389 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-03-16 16:20:16.049  INFO 19389 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:103}] to localhost:27017
+2018-03-16 16:20:16.052  INFO 19389 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2217051}
+2018-03-16 16:20:16.369  INFO 19389 --- [server-kqueue-9] r.ipc.netty.tcp.BlockingNettyContext     : Started HttpServer on /0:0:0:0:0:0:0:0%0:8080
+2018-03-16 16:20:16.371  INFO 19389 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8080
+2018-03-16 16:20:16.375  INFO 19389 --- [    Test worker] playground.StepDefs                      : Started StepDefs in 3.64 seconds (JVM running for 4.928)
+2018-03-16 16:20:16.755  INFO 19389 --- [       Thread-6] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:104}] to 127.0.0.1:27017
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Mar 16, 2018 4:14:23 PM org.springframework.test.context.support.AbstractContextLoader generateDefaultLocations
+<pre>Mar 16, 2018 4:20:12 PM org.springframework.test.context.support.AbstractContextLoader generateDefaultLocations
 INFO: Could not detect default resource locations for test class [playground.SpringIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-Mar 16, 2018 4:14:23 PM org.springframework.boot.test.context.SpringBootTestContextBootstrapper getDefaultTestExecutionListenerClassNames
+Mar 16, 2018 4:20:12 PM org.springframework.boot.test.context.SpringBootTestContextBootstrapper getDefaultTestExecutionListenerClassNames
 INFO: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-Mar 16, 2018 4:14:23 PM org.springframework.boot.test.context.SpringBootTestContextBootstrapper getTestExecutionListeners
-INFO: Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6de09bdf, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5a21d747, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@f5d9add, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6a6dcdad, org.springframework.test.context.transaction.TransactionalTestExecutionListener@33a8d5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57f5e993, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@341d0ac2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3099b949, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@679e826b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1f5f467a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@43481449]
+Mar 16, 2018 4:20:12 PM org.springframework.boot.test.context.SpringBootTestContextBootstrapper getTestExecutionListeners
+INFO: Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2f28acd6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7c86f200, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1b67a5e4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@263942ec, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4c9d04e1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7c0e980, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@21ae2419, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4dec2ce2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@69f293b2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@697eebe5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@39a0943f]
 </pre>
 </span>
 </div>
@@ -181,7 +181,7 @@ INFO: Using TestExecutionListeners: [org.springframework.test.context.support.Di
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.5.1</a> at 16-Mar-2018 16:14:29</p>
+<a href="http://www.gradle.org">Gradle 4.5.1</a> at 16-Mar-2018 16:20:18</p>
 </div>
 </div>
 </body>
