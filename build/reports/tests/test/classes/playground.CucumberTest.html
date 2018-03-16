@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class playground.CucumberTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class playground.CucumberTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/playground.html">playground</a> &gt; CucumberTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">0</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">-</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">-</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Feature: payments CRUD
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+2018-03-16 16:14:28.447  WARN 19250 --- [erver-kqueue-18] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [POST http://localhost:8080/payments]: Response status 400 with reason &quot;POSTs shouldn't have ids&quot;
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+2018-03-16 16:14:28.501  WARN 19250 --- [erver-kqueue-18] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [PUT http://localhost:8080/payments/0151e151-2710-49ff-bbf3-56d42005c8d4]: Response status 400 with reason &quot;path variable id and payment id should match&quot;
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+2018-03-16 16:14:28.553  WARN 19250 --- [       Thread-6] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [GET http://localhost:8080/payments/28dd3b8e-1903-4dd2-8765-abd9ca91c997]: Response status 404 with reason &quot;payment 28dd3b8e-1903-4dd2-8765-abd9ca91c997 doesn't exist&quot;
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+
+  Scenario: the client deletes a non existing payment ?[90m# cucumber.feature:31?[0m
+    (idempotency of DELETE)
+
+    ?[32mGiven ?[0m?[32mthe client POST ?[0m?[32m?[1m1?[0m?[32m mock?[0m                      ?[90m# StepDefs.mockNData(Integer)?[0m
+    ?[32mWhen ?[0m?[32mthe client DELETE a payment?[0m                  ?[90m# StepDefs.deletePayment()?[0m
+    ?[32mAnd ?[0m?[32mthe client DELETE a payment?[0m                   ?[90m# StepDefs.deletePayment()?[0m
+    ?[32mThen ?[0m?[32mthe client receives status code of ?[0m?[32m?[1m200?[0m       ?[90m# StepDefs.clientReceivesCode(int)?[0m
+
+  Scenario Outline: the client gets payments by beneficiaryName   ?[90m# cucumber.feature:38?[0m
+    ?[36mGiven ?[0m?[36mthe client POST 15 mocks?[0m
+    ?[36mWhen ?[0m?[36mthe client GET /payments with beneficiaryName &quot;&lt;string&gt;&quot;?[0m
+    ?[36mThen ?[0m?[36mthe client receives &lt;number&gt; payments?[0m
+
+    Examples: 
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+
+  Background:                          ?[90m# cucumber.feature:4?[0m
+    ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
+    ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+
+  Scenario Outline: the client gets payments by beneficiaryName ?[90m# cucumber.feature:45?[0m
+    ?[32mGiven ?[0m?[32mthe client POST ?[0m?[32m?[1m15?[0m?[32m mocks?[0m                              ?[90m# StepDefs.mockNData(Integer)?[0m
+    ?[32mWhen ?[0m?[32mthe client GET /payments with beneficiaryName &quot;?[0m?[32m?[1mmark?[0m?[32m&quot;?[0m   ?[90m# StepDefs.clientGetsPayments(String)?[0m
+    ?[32mThen ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m                         ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
+
+8 Scenarios (?[32m8 passed?[0m)
+46 Steps (?[32m46 passed?[0m)
+0m1.323s
+
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.5.1</a> at 16-Mar-2018 16:14:29</p>
+</div>
+</div>
+</body>
+</html>
