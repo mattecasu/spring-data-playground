@@ -7,4 +7,5 @@
 .DS_Store
 *.log
 .gradle
-/build
+.gradle
+build/
