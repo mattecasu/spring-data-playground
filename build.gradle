@@ -1,5 +1,9 @@
+plugins {
+    id 'org.springframework.boot' version '2.0.0.RELEASE'
+}
+
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
 
 group = 'matplayground'
 version = '1.0-SNAPSHOT'
@@ -15,9 +19,9 @@ tasks.withType(JavaCompile) {
 
 
 repositories {
-
-    maven { url "http://repo.maven.apache.org/maven2" }
+    mavenCentral()
 }
+
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: '2.0.0.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.0.0.RELEASE'

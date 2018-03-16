@@ -17,19 +17,19 @@
     ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
     ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
     ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
-2018-03-16 16:20:17.362  WARN 19389 --- [erver-kqueue-18] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [POST http://localhost:8080/payments]: Response status 400 with reason "POSTs shouldn't have ids"
+2018-03-16 17:16:04.056  WARN 20076 --- [erver-kqueue-18] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [POST http://localhost:8080/payments]: Response status 400 with reason "POSTs shouldn't have ids"
 
   Background:                          ?[90m# cucumber.feature:4?[0m
     ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
     ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
     ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
-2018-03-16 16:20:17.416  WARN 19389 --- [erver-kqueue-18] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [PUT http://localhost:8080/payments/f9ca2fb0-2bf6-483f-be24-6eee83919f33]: Response status 400 with reason "path variable id and payment id should match"
+2018-03-16 17:16:04.121  WARN 20076 --- [erver-kqueue-18] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [PUT http://localhost:8080/payments/f1be5186-06ea-4242-9946-f0826002fc8f]: Response status 400 with reason "path variable id and payment id should match"
 
   Background:                          ?[90m# cucumber.feature:4?[0m
     ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
     ?[32mWhen ?[0m?[32mthe client GET /payments?[0m      ?[90m# StepDefs.clientGetsPayments()?[0m
     ?[32mAnd ?[0m?[32mthe client receives ?[0m?[32m?[1m0?[0m?[32m payments?[0m ?[90m# StepDefs.clientReceivesArrayOfLength(int)?[0m
-2018-03-16 16:20:17.460  WARN 19389 --- [       Thread-8] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [GET http://localhost:8080/payments/0e9b9eb8-2fbd-4580-9ceb-ba5a8f6c9a90]: Response status 404 with reason "payment 0e9b9eb8-2fbd-4580-9ceb-ba5a8f6c9a90 doesn't exist"
+2018-03-16 17:16:04.170  WARN 20076 --- [       Thread-9] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [GET http://localhost:8080/payments/85b317c7-a390-40e4-9f9f-099958e04bbd]: Response status 404 with reason "payment 85b317c7-a390-40e4-9f9f-099958e04bbd doesn't exist"
 
   Background:                          ?[90m# cucumber.feature:4?[0m
     ?[32mGiven ?[0m?[32mthe db is clean?[0m              ?[90m# StepDefs.dbClean()?[0m
@@ -68,7 +68,7 @@
 
 8 Scenarios (?[32m8 passed?[0m)
 46 Steps (?[32m46 passed?[0m)
-0m1.295s
+0m1.283s
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
