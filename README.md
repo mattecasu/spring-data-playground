@@ -21,22 +21,12 @@ The integration tests are implemented as a BDD Cucumber feature.
 They make use of the Spring-Cucumber integration to launch the webapp
 and interact with the APIs.
 
-The (denormalised) model is mostly contained in a class with nested inner
-classes (static, to be Jackson-compatible).
+The API documentation (will be) exposed via Springfox Swagger
+on `http://<host:port>/swagger-ui.html`.
 
-A basic HAL support has been provided.
-Libraries such as Spring HATEOAS or Spring Data Rest might be considered
-for further hyperlink extensions.
+About swagger support, keep an eye on:
+`https://github.com/springfox/springfox/issues/1773`
 
-The /payments endpoint supports pagination with the parameters
-`?page=0&size=3` (this is not shown in the Springfox documentation, due
-to a non-perfect interaction between Springfox and Spring data).
-
-The API documentation is exposed via Springfox Swagger
-on `http://<host:port>/swagger-ui.html`. The endpoints are CORS-enabled.
-
-The project could have been based on SpringBoot 2 (webflux),
-but swagger wouldn't work:
-`https://www.bountysource.com/issues/47763045-springfox-doesn-t-work-with-spring-boot-2-0-and-spring-data-kay-rc2`
+The endpoints are CORS-enabled.
 
 Launch with `mvn clean spring-boot:run`, test with `mvn clean test`.
