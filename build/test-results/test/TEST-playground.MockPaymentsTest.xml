@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="playground.MockPaymentsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-03-16T17:16:04" hostname="b-0426.local" time="0.005">
-  <properties/>
-  <testcase name="testSingleMockPayment" classname="playground.MockPaymentsTest" time="0.001"/>
-  <testcase name="testEquality" classname="playground.MockPaymentsTest" time="0.004"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
