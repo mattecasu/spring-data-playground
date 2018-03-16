@@ -72,9 +72,9 @@ public class StepDefs extends SpringIntegrationTest {
     reactiveRes
         .expectBody(Payment.class)
         .consumeWith(res -> {
-              String id = res.getResponseBody().getId();
-              Assertions.assertThat(res.getResponseBody().equals(mockPayment().setId(id)));
-            });
+          String id = res.getResponseBody().getId();
+          Assertions.assertThat(res.getResponseBody().equals(mockPayment().setId(id)));
+        });
   }
 
   @And("^the client receives the POSTed object with id$")
