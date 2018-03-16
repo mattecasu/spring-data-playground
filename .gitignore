@@ -6,6 +6,5 @@
 *target/
 .DS_Store
 *.log
-.gradle
-.gradle
 build/
+.gradle/
