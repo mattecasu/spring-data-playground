@@ -19,7 +19,6 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -73,7 +72,7 @@ public class StepDefs extends SpringIntegrationTest {
         .expectBody(Payment.class)
         .consumeWith(res -> {
           String id = res.getResponseBody().getId();
-          Assertions.assertThat(res.getResponseBody().equals(mockPayment().setId(id)));
+          assertThat(res.getResponseBody(), is(equalTo(mockPayment().setId(id))));
         });
   }
 
