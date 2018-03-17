@@ -29,4 +29,4 @@ About swagger support, keep an eye on:
 
 The endpoints are CORS-enabled.
 
-Launch with `mvn clean spring-boot:run`, test with `mvn clean test`.
+Launch with `gradle clean bootRun`, test with `gradle clean test`.

@@ -5,7 +5,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration
 @SpringBootTest(
-    classes = App.class,
     webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT
 )
 public abstract class SpringIntegrationTest {
