@@ -1,9 +1,12 @@
 plugins {
     id 'org.springframework.boot' version '2.0.0.RELEASE'
+    id 'com.avast.gradle.docker-compose' version "0.7.1"
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'docker-compose'
+
 
 group = 'matplayground'
 version = '1.0-SNAPSHOT'
@@ -15,8 +18,6 @@ targetCompatibility = 1.8
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
-
 
 repositories {
     mavenCentral()
@@ -41,8 +42,13 @@ dependencies {
 
     compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
     compile group: 'org.json', name: 'json', version: '20180130'
+
 }
 
 test {
     testLogging.showStandardStreams = true
+}
+dockerCompose.isRequiredBy(test)
+dockerCompose {
+    useComposeFiles = ['src/test/resources/docker-compose.yml']
 }

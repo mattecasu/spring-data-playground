@@ -23,7 +23,7 @@ public class StepDefs extends SpringIntegrationTest {
   private String lastId;
 
   @Autowired
-  private WebTestClient webTestClient;
+  protected WebTestClient webTestClient;
 
   @Given("^the db is clean$")
   public void dbClean() {
