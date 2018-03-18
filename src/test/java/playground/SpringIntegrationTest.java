@@ -1,5 +1,6 @@
 package playground;
 
+import io.gatling.core.scenario.Simulation;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
