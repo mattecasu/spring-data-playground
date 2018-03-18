@@ -8,3 +8,4 @@
 *.log
 build/
 .gradle/
+out/
