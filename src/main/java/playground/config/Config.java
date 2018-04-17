@@ -1,6 +1,5 @@
 package playground.config;
 
-
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +11,6 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 @SpringBootConfiguration
 public class Config extends AbstractReactiveMongoConfiguration {
 
-
   @Value("${mongo.host}")
   private String host;
 
@@ -21,7 +19,6 @@ public class Config extends AbstractReactiveMongoConfiguration {
 
   @Value("${mongo.db.name}")
   private String dbName;
-
 
   @Override
   public MongoClient reactiveMongoClient() {
@@ -37,6 +34,4 @@ public class Config extends AbstractReactiveMongoConfiguration {
   public ReactiveMongoTemplate reactiveMongoTemplate() {
     return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
   }
-
-
 }

@@ -26,5 +26,4 @@ public class MockPaymentsTest {
 
     assertThat(mock1, is(equalTo(mock2)));
   }
-
 }

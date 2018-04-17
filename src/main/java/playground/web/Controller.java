@@ -29,17 +29,16 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class Controller {
 
-  @Autowired
-  PaymentRepository paymentRepository;
+  @Autowired PaymentRepository paymentRepository;
 
   private static final Integer NUMBER_OF_MOCKS = 4;
 
   @RequestMapping(value = "payments", method = GET)
   public Flux<Payment> getAll(@RequestParam(required = false) String beneficiary) {
 
-    return StringUtils.isBlank(beneficiary) ?
-        paymentRepository.findAll() :
-        paymentRepository.findByBeneficiaryName(beneficiary);
+    return StringUtils.isBlank(beneficiary)
+        ? paymentRepository.findAll()
+        : paymentRepository.findByBeneficiaryName(beneficiary);
   }
 
   @RequestMapping(value = "payments/mock", method = GET)
@@ -50,9 +49,10 @@ public class Controller {
   @RequestMapping(value = "payments/{id}", method = GET)
   public Mono<Payment> getPayment(@PathVariable String id) {
 
-    return paymentRepository.findById(id).switchIfEmpty(
-        Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist"))
-    );
+    return paymentRepository
+        .findById(id)
+        .switchIfEmpty(
+            Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 
   @RequestMapping(value = "payments", method = POST)
@@ -92,5 +92,4 @@ public class Controller {
   public Mono<Void> deletePayment(@PathVariable String id) {
     return paymentRepository.deleteById(id);
   }
-
 }

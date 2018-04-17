@@ -9,5 +9,4 @@ public interface PaymentRepository extends ReactiveMongoRepository<Payment, Stri
 
   @Query("{'attributes.beneficiaryParty.name': {$regex : \'?0\', $options: 'i'}}")
   Flux<Payment> findByBeneficiaryName(String name);
-
 }
