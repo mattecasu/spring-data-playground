@@ -33,23 +33,20 @@ public class StepDefs extends SpringIntegrationTest {
   public void mockNData(Integer n) {
     MockPayments.getMockPayments(n)
         .forEach(
-            mock -> {
-              lastId =
-                  webTestClient
-                      .post()
-                      .uri(url)
-                      .contentType(APPLICATION_JSON_UTF8)
-                      .accept(APPLICATION_JSON_UTF8)
-                      .body(Mono.just(mock.setId(null)), Payment.class)
-                      .exchange()
-                      .expectStatus()
-                      .isOk()
-                      .expectBody(Payment.class)
-                      .returnResult()
-                      .getResponseBody()
-                      .getId();
-              //              .jsonPath("$.id").isEqualTo(mock.getId())
-            });
+            mock -> lastId =
+                webTestClient
+                    .post()
+                    .uri(url)
+                    .contentType(APPLICATION_JSON_UTF8)
+                    .accept(APPLICATION_JSON_UTF8)
+                    .body(Mono.just(mock.setId(null)), Payment.class)
+                    .exchange()
+                    .expectStatus()
+                    .isOk()
+                    .expectBody(Payment.class)
+                    .returnResult()
+                    .getResponseBody()
+                    .getId());
   }
 
   @And("^the client POST a mock with id$")
@@ -81,7 +78,7 @@ public class StepDefs extends SpringIntegrationTest {
         .isOk()
         .expectBody()
         .jsonPath("$.id")
-        .isEqualTo(update.getId())
+        .isEqualTo(lastId)
         .jsonPath("$.type")
         .isEqualTo(value);
   }

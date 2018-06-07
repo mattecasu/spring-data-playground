@@ -1,18 +1,9 @@
 ## Spring data playground (mongo)
 
-This project is a SpringBoot-data CRUD using MongoDB.
-It's an experiment using webflux, but with blocking logic.
+This project is a SpringBoot-data reactive CRUD using MongoDB.
 
 It provides standard CRUD functionalities over the model as well as a
 basic textual search.
-
-The mongo server is to be specified in the application's yml file.
-(Install and launch on Mac):
-```
-brew install mongodb
-brew services start mongodb
-
-```
 
 The integration tests are implemented as end-to-end BDD Cucumber feature.
 They use docker compose to pull and run a mongo docker image.

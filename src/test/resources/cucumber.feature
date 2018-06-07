@@ -29,11 +29,10 @@ Feature: payments CRUD
     Then the client receives status code of 404
 
   Scenario: the client deletes a non existing payment
-    (idempotency of DELETE)
     Given the client POST 1 mock
     When the client DELETE a payment
     And the client DELETE a payment
-    Then the client receives status code of 200
+    Then the client receives status code of 404
 
   Scenario Outline: the client gets payments by beneficiaryName
     Given the client POST 15 mocks
