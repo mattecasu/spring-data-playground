@@ -1,14 +1,12 @@
 package playground.repo;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import playground.model.Payment;
+import reactor.core.publisher.Flux;
 
-public interface PaymentRepository extends MongoRepository<Payment, String> {
+public interface PaymentRepository extends ReactiveMongoRepository<Payment, String> {
 
-    @Query("{'attributes.beneficiaryParty.name': {$regex : \'?0\', $options: 'i'}}")
-    Page<Payment> findByBeneficiaryName(String name, Pageable pageable);
-
+  @Query("{'attributes.beneficiaryParty.name': {$regex : \'?0\', $options: 'i'}}")
+  Flux<Payment> findByBeneficiaryName(String name);
 }
