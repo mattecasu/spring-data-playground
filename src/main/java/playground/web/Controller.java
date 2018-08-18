@@ -29,8 +29,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class Controller {
 
-  @Autowired
-  PaymentRepository paymentRepository;
+  @Autowired PaymentRepository paymentRepository;
 
   private static final Integer NUMBER_OF_MOCKS = 4;
 
@@ -75,13 +74,11 @@ public class Controller {
           new ResponseStatusException(BAD_REQUEST, "path variable id and payment id should match"));
     }
 
-    return paymentRepository.existsById(id)
-        .flatMap(p -> paymentRepository
-            .deleteById(id)
-            .then(paymentRepository.insert(payment))
-        ).switchIfEmpty(
-            Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist"))
-        );
+    return paymentRepository
+        .existsById(id)
+        .flatMap(p -> paymentRepository.deleteById(id).then(paymentRepository.insert(payment)))
+        .switchIfEmpty(
+            Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 
   @RequestMapping(value = "payments", method = DELETE)
@@ -91,10 +88,10 @@ public class Controller {
 
   @RequestMapping(value = "payments/{id}", method = DELETE)
   public Mono<Void> deletePayment(@PathVariable String id) {
-    return paymentRepository.findById(id)
+    return paymentRepository
+        .findById(id)
         .flatMap(payment -> paymentRepository.deleteById(id))
         .switchIfEmpty(
-            Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist"))
-        );
+            Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 }

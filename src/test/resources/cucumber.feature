@@ -1,4 +1,3 @@
-
 Feature: payments CRUD
 
   Background:
@@ -39,6 +38,6 @@ Feature: payments CRUD
     When the client GET /payments with beneficiaryName "<string>"
     Then the client receives <number> payments
     Examples:
-      |   string | number |
-      | jeremiah |     15 |
-      |    mark  |      0 |
+      | string   | number |
+      | jeremiah | 15     |
+      | mark     | 0      |

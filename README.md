@@ -18,4 +18,10 @@ exposed via Springfox Swagger on
 
 The endpoints are CORS-enabled.
 
-Launch with `gradle clean bootRun`, test with `gradle clean test`.
+Launch by:
+- running mongo: `sudo docker run -p 27017:27017 mongo:4.1`
+- running the app: `gradle clean bootRun`
+
+or test with:
+
+- `gradle clean test`.
