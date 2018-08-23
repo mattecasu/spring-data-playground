@@ -34,4 +34,5 @@ public class Config extends AbstractReactiveMongoConfiguration {
   public ReactiveMongoTemplate reactiveMongoTemplate() {
     return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
   }
+
 }

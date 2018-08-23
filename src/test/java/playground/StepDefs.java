@@ -1,8 +1,5 @@
 package playground;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
-import static playground.model.MockPayments.mockPayment;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,6 +12,9 @@ import playground.model.MockPayments;
 import playground.model.Payment;
 import reactor.core.publisher.Mono;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
+import static playground.model.MockPayments.mockPayment;
+
 @Slf4j
 public class StepDefs extends SpringIntegrationTest {
 
@@ -22,11 +22,17 @@ public class StepDefs extends SpringIntegrationTest {
   private ResponseSpec responseSpec;
   private String lastId;
 
-  @Autowired protected WebTestClient webTestClient;
+  @Autowired
+  protected WebTestClient webTestClient;
 
   @Given("^the db is clean$")
   public void dbClean() {
-    webTestClient.delete().uri(url).exchange().expectStatus().isOk();
+    webTestClient
+        .delete()
+        .uri(url)
+        .exchange()
+        .expectStatus()
+        .isOk();
   }
 
   @And("^the client POST (\\d+) (?:mock|mocks)$")

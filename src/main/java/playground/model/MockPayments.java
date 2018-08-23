@@ -1,11 +1,11 @@
 package playground.model;
 
+import java.util.Collection;
+import java.util.stream.IntStream;
+
 import static com.google.common.collect.Lists.newArrayList;
 import static java.util.UUID.randomUUID;
 import static java.util.stream.Collectors.toList;
-
-import java.util.Collection;
-import java.util.stream.IntStream;
 
 public class MockPayments {
 
