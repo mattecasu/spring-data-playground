@@ -10,7 +10,7 @@ They use docker compose to pull and run a mongo docker image.
 They use the Spring-Cucumber integration to launch the webapp
 and interact with the APIs.
 
-As of yet, Springfox is not yet compatible with webflux:
+As of yet, Springfox is not yet fully compatible with webflux:
 `https://github.com/springfox/springfox/issues/1773`.
 When a fix is available, the API documentation (will be)
 exposed via Springfox Swagger on
@@ -19,7 +19,7 @@ exposed via Springfox Swagger on
 The endpoints are CORS-enabled.
 
 Launch by:
-- running mongo: `sudo docker run -p 27017:27017 mongo:4.1`
+- running mongo: `docker run -p 27017:27017 mongo:4.1`
 - running the app: `gradle clean bootRun`
 
 or test with:

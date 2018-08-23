@@ -1,39 +1,32 @@
 package playground.web;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static org.springframework.web.bind.annotation.RequestMethod.PUT;
-import static playground.model.MockPayments.getMockPayments;
-
-import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import playground.model.Payment;
 import playground.repo.PaymentRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static playground.model.MockPayments.getMockPayments;
+
 @RestController
 @CrossOrigin
 @Slf4j
 public class Controller {
 
-  @Autowired PaymentRepository paymentRepository;
+  @Autowired
+  PaymentRepository paymentRepository;
 
   private static final Integer NUMBER_OF_MOCKS = 4;
 
-  @RequestMapping(value = "payments", method = GET)
+  @GetMapping(value = "/payments")
   public Flux<Payment> getAll(@RequestParam(required = false) String beneficiary) {
 
     return StringUtils.isBlank(beneficiary)
@@ -41,12 +34,12 @@ public class Controller {
         : paymentRepository.findByBeneficiaryName(beneficiary);
   }
 
-  @RequestMapping(value = "payments/mock", method = GET)
+  @GetMapping(value = "/payments/mock")
   public Flux<Payment> getMock() {
     return Flux.fromIterable(getMockPayments(NUMBER_OF_MOCKS));
   }
 
-  @RequestMapping(value = "payments/{id}", method = GET)
+  @GetMapping(value = "/payments/{id}")
   public Mono<Payment> getPayment(@PathVariable String id) {
 
     return paymentRepository
@@ -55,7 +48,7 @@ public class Controller {
             Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 
-  @RequestMapping(value = "payments", method = POST)
+  @PostMapping(value = "/payments")
   public Mono<Payment> postPayment(@RequestBody Payment payment) {
 
     if (payment.getId() != null) {
@@ -66,7 +59,7 @@ public class Controller {
     return paymentRepository.insert(payment.setId(newId));
   }
 
-  @RequestMapping(value = "payments/{id}", method = PUT)
+  @PutMapping(value = "/payments/{id}")
   public Mono<Payment> updateCustomer(@RequestBody Payment payment, @PathVariable String id) {
 
     if (payment.getId() == null || !payment.getId().equals(id)) {
@@ -81,12 +74,12 @@ public class Controller {
             Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 
-  @RequestMapping(value = "payments", method = DELETE)
+  @DeleteMapping(value = "/payments")
   public Mono<Void> deleteAll() {
     return paymentRepository.deleteAll();
   }
 
-  @RequestMapping(value = "payments/{id}", method = DELETE)
+  @DeleteMapping(value = "/payments/{id}")
   public Mono<Void> deletePayment(@PathVariable String id) {
     return paymentRepository
         .findById(id)

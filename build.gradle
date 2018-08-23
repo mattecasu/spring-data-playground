@@ -26,6 +26,7 @@ tasks.withType(JavaCompile) {
 }
 
 repositories {
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
     mavenCentral()
 }
 
@@ -33,6 +34,7 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: "${spring}"
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${spring}"
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "${spring}"
+
     compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
 
     compile 'org.projectlombok:lombok:1.18.2'
@@ -47,8 +49,9 @@ dependencies {
     testCompile "io.cucumber:cucumber-spring:${cuke}"
     testCompile "io.cucumber:cucumber-junit:${cuke}"
 
-    compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
-    compile group: 'org.json', name: 'json', version: '20180130'
+    compile "io.springfox:springfox-swagger2:3.0.0-SNAPSHOT"
+    compile "io.springfox:springfox-spring-webflux:3.0.0-SNAPSHOT"
+    compile "io.springfox:springfox-swagger-ui:3.0.0-SNAPSHOT"
 
 }
 
