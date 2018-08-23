@@ -1,6 +1,6 @@
 plugins {
     id 'org.springframework.boot' version "2.0.4.RELEASE"
-    id 'com.avast.gradle.docker-compose' version "0.7.1"
+    id 'com.avast.gradle.docker-compose' version "0.8.4"
     id "com.github.sherter.google-java-format" version "0.7.1"
 }
 
@@ -11,6 +11,7 @@ apply plugin: 'docker-compose'
 project.ext {
     spring = '2.0.4.RELEASE'
     cuke = '3.0.2'
+    springfox = '3.0.0-SNAPSHOT'
 }
 
 group = 'matplayground'
@@ -26,32 +27,33 @@ tasks.withType(JavaCompile) {
 }
 
 repositories {
-    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
     mavenCentral()
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: "${spring}"
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${spring}"
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "${spring}"
 
-    compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive:${spring}"
+    compile "org.springframework.boot:spring-boot-starter-webflux:${spring}"
+    compile "org.springframework.boot:spring-boot-starter-actuator:${spring}"
 
-    compile 'org.projectlombok:lombok:1.18.2'
-    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compile "com.google.guava:guava:26.0-jre"
 
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    compile "org.projectlombok:lombok:1.18.2"
+    annotationProcessor "org.projectlombok:lombok:1.18.2"
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${spring}"
+    compile "org.apache.commons:commons-lang3:3.7"
+
+    testCompile "junit:junit:4.12"
+    testCompile "org.springframework.boot:spring-boot-starter-test:${spring}"
 
     testCompile "io.cucumber:cucumber-java:${cuke}"
     testCompile "io.cucumber:cucumber-spring:${cuke}"
     testCompile "io.cucumber:cucumber-junit:${cuke}"
 
-    compile "io.springfox:springfox-swagger2:3.0.0-SNAPSHOT"
-    compile "io.springfox:springfox-spring-webflux:3.0.0-SNAPSHOT"
-    compile "io.springfox:springfox-swagger-ui:3.0.0-SNAPSHOT"
+    compile "io.springfox:springfox-swagger2:${springfox}"
+    compile "io.springfox:springfox-spring-webflux:${springfox}"
+    compile "io.springfox:springfox-swagger-ui:${springfox}"
 
 }
 
