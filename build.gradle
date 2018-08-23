@@ -65,3 +65,7 @@ dockerCompose.isRequiredBy(test)
 dockerCompose {
     useComposeFiles = ['src/test/resources/docker-compose.yml']
 }
+
+springBoot  {
+    buildInfo()
+}
