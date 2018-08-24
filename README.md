@@ -1,4 +1,4 @@
-## Spring data playground (mongo)
+## Springboot data webflux playground (mongo)
 
 This project is a SpringBoot-data reactive CRUD using MongoDB.
 
