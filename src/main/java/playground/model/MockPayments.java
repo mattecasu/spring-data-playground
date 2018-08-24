@@ -16,7 +16,6 @@ public class MockPayments {
     return new Payment()
         .setId(randomUUID().toString())
         .setOrganisationId("743d5b63-8e6f-432e-a8fa-c5d8d2ee5fcb")
-        .setVersion(0)
         .setType("Payment")
         .setAttributes(
             new PaymentAttributes()
