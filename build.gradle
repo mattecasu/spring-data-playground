@@ -65,6 +65,6 @@ dockerCompose {
     useComposeFiles = ['src/test/resources/docker-compose.yml']
 }
 
-springBoot  {
+springBoot {
     buildInfo()
 }
