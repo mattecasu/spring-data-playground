@@ -1,7 +1,6 @@
 package playground.web;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,6 +11,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static playground.model.MockPayments.getMockPayments;
@@ -29,7 +29,7 @@ public class Controller {
   @GetMapping(value = "/payments")
   public Flux<Payment> getAll(@RequestParam(required = false) String beneficiary) {
 
-    return StringUtils.isBlank(beneficiary)
+    return isBlank(beneficiary)
         ? paymentRepository.findAll()
         : paymentRepository.findByBeneficiaryName(beneficiary);
   }
