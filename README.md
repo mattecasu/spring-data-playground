@@ -17,8 +17,8 @@ The endpoints are CORS-enabled.
 
 Launch by:
 - running mongo: `docker run -p 27017:27017 mongo:4.1`
-- running the app: `gradle clean bootRun`
+- running the app: `./gradlew clean bootRun`
 
 or test with:
 
-- `gradle clean test`.
+- `./gradlew clean test`.
