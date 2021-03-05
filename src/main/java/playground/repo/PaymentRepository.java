@@ -7,6 +7,6 @@ import reactor.core.publisher.Flux;
 
 public interface PaymentRepository extends ReactiveMongoRepository<Payment, String> {
 
-  @Query("{'attributes.beneficiaryParty.name': {$regex : \'?0\', $options: 'i'}}")
-  Flux<Payment> findByBeneficiaryName(String name);
+    @Query("{'attributes.beneficiaryParty.name': {$regex : \'?0\', $options: 'i'}}")
+    Flux<Payment> findByBeneficiaryName(String name);
 }

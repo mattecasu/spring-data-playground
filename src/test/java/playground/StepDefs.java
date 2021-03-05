@@ -1,9 +1,9 @@
 package playground;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -12,127 +12,129 @@ import playground.model.MockPayments;
 import playground.model.Payment;
 import reactor.core.publisher.Mono;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static playground.model.MockPayments.mockPayment;
 
 @Slf4j
 public class StepDefs extends SpringIntegrationTest {
 
-  private String url = super.baseUrl + "/payments";
-  private ResponseSpec responseSpec;
-  private String lastId;
+    private String url = super.baseUrl + "/payments";
+    private ResponseSpec responseSpec;
+    private String lastId;
 
-  @Autowired
-  protected WebTestClient webTestClient;
+    @Autowired
+    protected WebTestClient webTestClient;
 
-  @Given("^the db is clean$")
-  public void dbClean() {
-    webTestClient
-        .delete()
-        .uri(url)
-        .exchange()
-        .expectStatus()
-        .isOk();
-  }
+    @Given("^the db is clean$")
+    public void dbClean() {
+        webTestClient
+                .delete()
+                .uri(url)
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
 
-  @And("^the client POST (\\d+) (?:mock|mocks)$")
-  public void mockNData(Integer n) {
-    MockPayments.getMockPayments(n)
-        .forEach(
-            mock ->
-                lastId =
-                    webTestClient
+    @And("^the client POST (\\d+) (?:mock|mocks)$")
+    public void mockNData(Integer n) {
+        MockPayments.getMockPayments(n)
+                .forEach(
+                        mock ->
+                                lastId =
+                                        webTestClient
+                                                .post()
+                                                .uri(url)
+                                                .contentType(APPLICATION_JSON)
+                                                .accept(APPLICATION_JSON)
+                                                .body(Mono.just(mock.setId(null)), Payment.class)
+                                                .exchange()
+                                                .expectStatus()
+                                                .isOk()
+                                                .expectBody(Payment.class)
+                                                .returnResult()
+                                                .getResponseBody()
+                                                .getId());
+    }
+
+    @And("^the client POST a mock with id$")
+    public void mockDataWithId() {
+        Payment mock = mockPayment();
+        responseSpec =
+                webTestClient
                         .post()
                         .uri(url)
-                        .contentType(APPLICATION_JSON_UTF8)
-                        .accept(APPLICATION_JSON_UTF8)
-                        .body(Mono.just(mock.setId(null)), Payment.class)
-                        .exchange()
-                        .expectStatus()
-                        .isOk()
-                        .expectBody(Payment.class)
-                        .returnResult()
-                        .getResponseBody()
-                        .getId());
-  }
+                        .contentType(APPLICATION_JSON)
+                        .accept(APPLICATION_JSON)
+                        .body(Mono.just(mock), Payment.class)
+                        .exchange();
+    }
 
-  @And("^the client POST a mock with id$")
-  public void mockDataWithId() {
-    Payment mock = mockPayment();
-    responseSpec =
+    @And("^the client updates a payment with value \"([^\"]*)\" on the type field$")
+    public void update(String value) {
+
+        Payment update = mockPayment().setId(lastId).setType(value);
+
         webTestClient
-            .post()
-            .uri(url)
-            .contentType(APPLICATION_JSON_UTF8)
-            .accept(APPLICATION_JSON_UTF8)
-            .body(Mono.just(mock), Payment.class)
-            .exchange();
-  }
+                .put()
+                .uri(url + "/" + lastId)
+                .contentType(APPLICATION_JSON)
+                .accept(APPLICATION_JSON)
+                .body(Mono.just(update), Payment.class)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$.id")
+                .isEqualTo(lastId)
+                .jsonPath("$.type")
+                .isEqualTo(value);
+    }
 
-  @And("^the client updates a payment with value \"([^\"]*)\" on the type field$")
-  public void update(String value) {
+    @And("^the client updates a payment with no id$")
+    public void updateNoId() {
 
-    Payment update = mockPayment().setId(lastId).setType(value);
+        Payment update = mockPayment().setId(null);
 
-    webTestClient
-        .put()
-        .uri(url + "/" + lastId)
-        .contentType(APPLICATION_JSON_UTF8)
-        .accept(APPLICATION_JSON_UTF8)
-        .body(Mono.just(update), Payment.class)
-        .exchange()
-        .expectStatus()
-        .isOk()
-        .expectBody()
-        .jsonPath("$.id")
-        .isEqualTo(lastId)
-        .jsonPath("$.type")
-        .isEqualTo(value);
-  }
+        responseSpec =
+                webTestClient
+                        .put()
+                        .uri(url + "/" + lastId)
+                        .contentType(APPLICATION_JSON)
+                        .accept(APPLICATION_JSON)
+                        .body(Mono.just(update), Payment.class)
+                        .exchange();
+    }
 
-  @And("^the client updates a payment with no id$")
-  public void updateNoId() {
+    @And("^the client DELETE a payment$")
+    public void deletePayment() {
+        responseSpec = webTestClient.delete().uri(url + "/" + lastId).exchange();
+    }
 
-    Payment update = mockPayment().setId(null);
+    @When("^the client GET /payments$")
+    public void clientGetsPayments() {
+        responseSpec = webTestClient.get().uri(url).exchange();
+    }
 
-    responseSpec =
-        webTestClient
-            .put()
-            .uri(url + "/" + lastId)
-            .contentType(APPLICATION_JSON_UTF8)
-            .accept(APPLICATION_JSON_UTF8)
-            .body(Mono.just(update), Payment.class)
-            .exchange();
-  }
+    @When("^the client GET a payment$")
+    public void clientGetsPayment() {
+        responseSpec =
+                webTestClient.get().uri(url + "/" + lastId)
+                        .accept(APPLICATION_JSON)
+                        .exchange();
+    }
 
-  @And("^the client DELETE a payment$")
-  public void deletePayment() {
-    responseSpec = webTestClient.delete().uri(url + "/" + lastId).exchange();
-  }
+    @Then("^the client receives status code of (\\d+)$")
+    public void clientReceivesCode(int statusCode) {
+        responseSpec.expectStatus().isEqualTo(statusCode);
+    }
 
-  @When("^the client GET /payments$")
-  public void clientGetsPayments() {
-    responseSpec = webTestClient.get().uri(url).exchange();
-  }
+    @And("^the client receives (\\d+) payments$")
+    public void clientReceivesArrayOfLength(int size) {
+        responseSpec.expectBodyList(Payment.class).hasSize(size);
+    }
 
-  @When("^the client GET a payment$")
-  public void clientGetsPayment() {
-    responseSpec =
-        webTestClient.get().uri(url + "/" + lastId).accept(APPLICATION_JSON_UTF8).exchange();
-  }
-
-  @Then("^the client receives status code of (\\d+)$")
-  public void clientReceivesCode(int statusCode) {
-    responseSpec.expectStatus().isEqualTo(statusCode);
-  }
-
-  @And("^the client receives (\\d+) payments$")
-  public void clientReceivesArrayOfLength(int size) {
-    responseSpec.expectBodyList(Payment.class).hasSize(size);
-  }
-
-  @When("^the client GET /payments with beneficiaryName \"([^\"]*)\"$")
-  public void clientGetsPayments(String value) {
-    responseSpec = webTestClient.get().uri(url + "?beneficiary=" + value).exchange();
-  }
+    @When("^the client GET /payments with beneficiaryName \"([^\"]*)\"$")
+    public void clientGetsPayments(String value) {
+        responseSpec = webTestClient.get().uri(url + "?beneficiary=" + value).exchange();
+    }
 }

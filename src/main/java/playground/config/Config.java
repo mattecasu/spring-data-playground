@@ -11,28 +11,28 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 @SpringBootConfiguration
 public class Config extends AbstractReactiveMongoConfiguration {
 
-  @Value("${mongo.host}")
-  private String host;
+    @Value("${mongo.host}")
+    private String host;
 
-  @Value("${mongo.port}")
-  private String port;
+    @Value("${mongo.port}")
+    private String port;
 
-  @Value("${mongo.db.name}")
-  private String dbName;
+    @Value("${mongo.db.name}")
+    private String dbName;
 
-  @Override
-  public MongoClient reactiveMongoClient() {
-    return MongoClients.create("mongodb://" + host + ":" + Integer.valueOf(port));
-  }
+    @Override
+    public MongoClient reactiveMongoClient() {
+        return MongoClients.create("mongodb://" + host + ":" + Integer.valueOf(port));
+    }
 
-  @Override
-  protected String getDatabaseName() {
-    return dbName;
-  }
+    @Override
+    protected String getDatabaseName() {
+        return dbName;
+    }
 
-  @Bean
-  public ReactiveMongoTemplate reactiveMongoTemplate() {
-    return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
-  }
+    @Bean
+    public ReactiveMongoTemplate reactiveMongoTemplate() {
+        return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
+    }
 
 }

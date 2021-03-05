@@ -13,17 +13,17 @@ import static playground.model.MockPayments.mockPayment;
 @Slf4j
 public class MockPaymentsTest {
 
-  @Test
-  public void testSingleMockPayment() {
-    isNotBlank(mockPayment().getId());
-  }
+    @Test
+    public void testSingleMockPayment() {
+        isNotBlank(mockPayment().getId());
+    }
 
-  @Test
-  public void testEquality() {
+    @Test
+    public void testEquality() {
 
-    Payment mock1 = mockPayment();
-    Payment mock2 = mockPayment().setId(mock1.getId());
+        Payment mock1 = mockPayment();
+        Payment mock2 = mockPayment().setId(mock1.getId());
 
-    assertThat(mock1, is(equalTo(mock2)));
-  }
+        assertThat(mock1, is(equalTo(mock2)));
+    }
 }
