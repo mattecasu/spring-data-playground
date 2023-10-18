@@ -1,13 +1,20 @@
 package playground;
 
-import io.cucumber.spring.CucumberContextConfiguration;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
+import org.junit.platform.suite.api.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.web.reactive.server.WebTestClient;
 
-@ContextConfiguration
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@CucumberContextConfiguration
-public abstract class SpringIntegrationTest {
+import static io.cucumber.core.options.Constants.*;
 
-    String baseUrl = "http://localhost:8080";
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("playground")
+@ConfigurationParameters({
+  @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "json:build/cucumber/cucumber.json"),
+  @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "playground")
+})
+public class SpringIntegrationTest {
+
+  @Autowired protected WebTestClient webTestClient;
+  protected String baseUrl = "http://localhost:8080";
 }
