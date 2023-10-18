@@ -1,7 +1,14 @@
 package playground.web;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static playground.model.MockPayments.getMockPayments;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +17,6 @@ import playground.model.Payment;
 import playground.repo.PaymentRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.UUID;
-
-import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-import static org.springframework.web.bind.annotation.RequestMethod.*;
-import static playground.model.MockPayments.getMockPayments;
 
 @RestController
 @Tag(name = "Searcher Controller")
@@ -29,7 +28,7 @@ public class Controller {
 
   private static final Integer NUMBER_OF_MOCKS = 4;
 
-  @Operation(summary = "Index a file")
+  @Operation(summary = "Get a payment")
   @RequestMapping(
       value = "/payments",
       method = {GET})
