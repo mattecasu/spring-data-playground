@@ -1,5 +1,7 @@
 package playground.web;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,19 +16,23 @@ import java.util.UUID;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 import static playground.model.MockPayments.getMockPayments;
 
 @RestController
+@Tag(name = "Searcher Controller")
 @CrossOrigin
 @Slf4j
 public class Controller {
 
-  @Autowired
-  PaymentRepository paymentRepository;
+  @Autowired PaymentRepository paymentRepository;
 
   private static final Integer NUMBER_OF_MOCKS = 4;
 
-  @GetMapping(value = "/payments")
+  @Operation(summary = "Index a file")
+  @RequestMapping(
+      value = "/payments",
+      method = {GET})
   public Flux<Payment> getAll(@RequestParam(required = false) String beneficiary) {
 
     return isBlank(beneficiary)
@@ -34,12 +40,16 @@ public class Controller {
         : paymentRepository.findByBeneficiaryName(beneficiary);
   }
 
-  @GetMapping(value = "/payments/mock")
+  @RequestMapping(
+      value = "/payments/mock",
+      method = {GET})
   public Flux<Payment> getMock() {
     return Flux.fromIterable(getMockPayments(NUMBER_OF_MOCKS));
   }
 
-  @GetMapping(value = "/payments/{id}")
+  @RequestMapping(
+      value = "/payments/{id}",
+      method = {GET})
   public Mono<Payment> getPayment(@PathVariable String id) {
 
     return paymentRepository
@@ -48,7 +58,9 @@ public class Controller {
             Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 
-  @PostMapping(value = "/payments")
+  @RequestMapping(
+      value = "/payments",
+      method = {POST})
   public Mono<Payment> postPayment(@RequestBody Payment payment) {
 
     if (payment.getId() != null) {
@@ -59,7 +71,9 @@ public class Controller {
     return paymentRepository.insert(payment.setId(newId));
   }
 
-  @PutMapping(value = "/payments/{id}")
+  @RequestMapping(
+      value = "/payments/{id}",
+      method = {PUT})
   public Mono<Payment> updateCustomer(@RequestBody Payment payment, @PathVariable String id) {
 
     if (payment.getId() == null || !payment.getId().equals(id)) {
@@ -74,12 +88,16 @@ public class Controller {
             Mono.error(new ResponseStatusException(NOT_FOUND, "payment " + id + " doesn't exist")));
   }
 
-  @DeleteMapping(value = "/payments")
+  @RequestMapping(
+      value = "/payments",
+      method = {DELETE})
   public Mono<Void> deleteAll() {
     return paymentRepository.deleteAll();
   }
 
-  @DeleteMapping(value = "/payments/{id}")
+  @RequestMapping(
+      value = "/payments/{id}",
+      method = {DELETE})
   public Mono<Void> deletePayment(@PathVariable String id) {
     return paymentRepository
         .findById(id)
