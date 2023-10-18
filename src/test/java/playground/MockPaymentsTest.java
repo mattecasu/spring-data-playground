@@ -1,14 +1,14 @@
 package playground;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import playground.model.Payment;
-
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import static playground.model.MockPayments.mockPayment;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import playground.model.Payment;
 
 @Slf4j
 public class MockPaymentsTest {

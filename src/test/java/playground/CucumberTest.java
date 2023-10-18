@@ -1,14 +1,10 @@
 package playground;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.spring.CucumberContextConfiguration;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
-@RunWith(Cucumber.class)
-@CucumberOptions(
-        plugin = {"pretty", "html:target/cucumber", "junit:target/junit-report.xml"},
-        features = "src/test/resources")
-public class CucumberTest {
-}
+@CucumberContextConfiguration
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+public class CucumberTest {}

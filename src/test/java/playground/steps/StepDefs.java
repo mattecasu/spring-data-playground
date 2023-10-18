@@ -1,19 +1,18 @@
-package playground;
+package playground.steps;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static playground.model.MockPayments.mockPayment;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.reactive.server.WebTestClient.ResponseSpec;
+import playground.SpringIntegrationTest;
 import playground.model.MockPayments;
 import playground.model.Payment;
 import reactor.core.publisher.Mono;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static playground.model.MockPayments.mockPayment;
 
 @Slf4j
 public class StepDefs extends SpringIntegrationTest {
@@ -21,9 +20,7 @@ public class StepDefs extends SpringIntegrationTest {
     private String url = super.baseUrl + "/payments";
     private ResponseSpec responseSpec;
     private String lastId;
-
-    @Autowired
-    protected WebTestClient webTestClient;
+    
 
     @Given("^the db is clean$")
     public void dbClean() {
