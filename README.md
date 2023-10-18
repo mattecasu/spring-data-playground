@@ -16,7 +16,7 @@ API documentation is exposed via Springfox Swagger on
 The endpoints are CORS-enabled.
 
 Launch by:
-- running mongo: `docker run -p 27017:27017 mongo:4.4.4`
+- running mongo: `docker run -p 27017:27017 mongo:7.0.2`
 - running the app: `./gradlew clean bootRun`
 
 or test with:
