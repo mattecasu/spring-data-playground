@@ -41,7 +41,7 @@ dependencies {
     implementation "org.projectlombok:lombok:1.18.26"
     annotationProcessor "org.projectlombok:lombok:1.18.26"
 
-    implementation "org.apache.commons:commons-lang3:3.12.0"
+    implementation "org.apache.commons:commons-lang3:3.13.0"
 
     // JUnit 5
     testImplementation "org.junit.jupiter:junit-jupiter:${versions.jUnitVersion}"
