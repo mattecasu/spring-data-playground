@@ -12,15 +12,9 @@ version = '1.0-SNAPSHOT'
 
 description = """"""
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
 repositories {
     mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
+    mavenCentral()
 }
 
 // only var-assignment method recognised by Dependabot,
