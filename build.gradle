@@ -33,7 +33,7 @@ dependencies {
 
     implementation "com.google.guava:guava:33.2.1-jre"
 
-    implementation "org.apache.commons:commons-lang3:3.14.0"
+    implementation "org.apache.commons:commons-lang3:3.16.0"
 
     // JUnit 5
     testImplementation "org.junit.jupiter:junit-jupiter:${jUnitVersion}"
