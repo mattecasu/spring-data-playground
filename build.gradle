@@ -44,7 +44,7 @@ dependencies {
     testImplementation "io.cucumber:cucumber-spring:${cukeVersion}"
     testImplementation "io.cucumber:cucumber-junit-platform-engine:${cukeVersion}"
 
-    testImplementation "org.hamcrest:hamcrest:2.2"
+    testImplementation "org.hamcrest:hamcrest:3.0"
 
     implementation "org.springdoc:springdoc-openapi-starter-webflux-ui:${springdocVersion}"
 
