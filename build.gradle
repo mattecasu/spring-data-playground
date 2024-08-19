@@ -31,7 +31,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 
-    implementation "com.google.guava:guava:33.2.1-jre"
+    implementation "com.google.guava:guava:33.3.0-jre"
 
     implementation "org.apache.commons:commons-lang3:3.16.0"
 
