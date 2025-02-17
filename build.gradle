@@ -22,7 +22,7 @@ repositories {
 def springBootVersion = "3.4.0"
 def cukeVersion = "7.20.1"
 def springdocVersion = "2.8.4"
-def jUnitVersion = "5.11.3"
+def jUnitVersion = "5.11.4"
 
 dependencies {
 
