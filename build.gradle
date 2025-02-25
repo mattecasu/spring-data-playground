@@ -58,7 +58,7 @@ test {
 
 dockerCompose.isRequiredBy(test)
 dockerCompose {
-    useComposeFiles = ['src/test/resources/docker-compose.yml']
+    useComposeFiles = ['src/test/resources/compose.yaml']
 }
 
 springBoot {
