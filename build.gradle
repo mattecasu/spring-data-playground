@@ -1,7 +1,7 @@
 plugins {
     id "org.springframework.boot" version "3.5.0"
     id 'com.avast.gradle.docker-compose' version "0.17.12"
-    id "io.freefair.lombok" version "8.13"
+    id "io.freefair.lombok" version "8.13.1"
 }
 
 apply plugin: 'java'
