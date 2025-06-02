@@ -21,7 +21,7 @@ repositories {
 // see https://github.com/dependabot/dependabot-core/issues/1618
 def springBootVersion = "3.4.4"
 def cukeVersion = "7.21.1"
-def springdocVersion = "2.8.5"
+def springdocVersion = "2.8.8"
 def jUnitVersion = "5.12.1"
 
 dependencies {
