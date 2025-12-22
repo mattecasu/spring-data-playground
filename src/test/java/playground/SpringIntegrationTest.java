@@ -15,6 +15,6 @@ import static io.cucumber.core.options.Constants.*;
 })
 public class SpringIntegrationTest {
 
-  @Autowired protected WebTestClient webTestClient;
-  protected String baseUrl = "http://localhost:8080";
+//  @Autowired protected WebTestClient webTestClient;
+//  protected String baseUrl = "http://localhost:8080";
 }

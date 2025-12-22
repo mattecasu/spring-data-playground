@@ -6,5 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
 @CucumberContextConfiguration
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class CucumberTest {}
+@SpringBootTest(
+  classes = App.class,
+  webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT
+)
+public class CucumberTest {
+}
