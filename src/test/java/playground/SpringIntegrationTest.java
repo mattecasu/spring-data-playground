@@ -14,7 +14,4 @@ import static io.cucumber.core.options.Constants.*;
   @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "playground")
 })
 public class SpringIntegrationTest {
-
-  @Autowired protected WebTestClient webTestClient;
-  protected String baseUrl = "http://localhost:8080";
 }

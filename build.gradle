@@ -1,7 +1,7 @@
 plugins {
-    id "org.springframework.boot" version "3.5.0"
-    id 'com.avast.gradle.docker-compose' version "0.17.12"
-    id "io.freefair.lombok" version "9.0.0"
+  id "org.springframework.boot" version "3.5.0"
+  id 'com.avast.gradle.docker-compose' version "0.17.12"
+  id "io.freefair.lombok" version "9.0.0"
 }
 
 apply plugin: 'java'
@@ -13,54 +13,62 @@ version = '1.0-SNAPSHOT'
 description = """"""
 
 repositories {
-    mavenLocal()
-    mavenCentral()
+  mavenLocal()
+  mavenCentral()
 }
 
 // only var-assignment method recognised by Dependabot,
 // see https://github.com/dependabot/dependabot-core/issues/1618
-def springBootVersion = "3.4.4"
+def springBootVersion = "4.0.1"
 def cukeVersion = "7.23.0"
 def springdocVersion = "2.8.8"
 def jUnitVersion = "6.0.0"
+def mockitoVersion = "5.5.0"
+def commonsLangVersion = "3.17.0"
+def guavaVersion = "33.4.8-jre"
 
 dependencies {
 
-    implementation "org.springframework.boot:spring-boot-starter-data-mongodb-reactive:${springBootVersion}"
-    implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}"
-    implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
-    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+  implementation "org.springframework.boot:spring-boot-starter-data-mongodb-reactive:${springBootVersion}"
+  implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}"
+  implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+  testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 
-    implementation "com.google.guava:guava:33.4.8-jre"
+  implementation "com.google.guava:guava:${guavaVersion}"
 
-    implementation "org.apache.commons:commons-lang3:3.17.0"
+  implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
 
-    // JUnit 5
-    testImplementation "org.junit.jupiter:junit-jupiter:${jUnitVersion}"
-    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
-    testImplementation "org.junit.platform:junit-platform-suite"
+  // JUnit 5
+  testImplementation "org.junit.jupiter:junit-jupiter:${jUnitVersion}"
+  testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+  testImplementation "org.junit.platform:junit-platform-suite"
 
-    testImplementation "io.cucumber:cucumber-java:${cukeVersion}"
-    testImplementation "io.cucumber:cucumber-spring:${cukeVersion}"
-    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cukeVersion}"
+  testImplementation "org.mockito:mockito-core:${mockitoVersion}"
 
-    testImplementation "org.hamcrest:hamcrest:3.0"
+  testImplementation "io.cucumber:cucumber-java:${cukeVersion}"
+  testImplementation "io.cucumber:cucumber-spring:${cukeVersion}"
+  testImplementation "io.cucumber:cucumber-junit-platform-engine:${cukeVersion}"
 
-    implementation "org.springdoc:springdoc-openapi-starter-webflux-ui:${springdocVersion}"
+  testImplementation "org.hamcrest:hamcrest:3.0"
+
+  implementation "org.springdoc:springdoc-openapi-starter-webflux-ui:${springdocVersion}"
 
 }
 
 test {
-    useJUnitPlatform()
-    systemProperty("cucumber.junit-platform.naming-strategy", "long")
-    testLogging.showStandardStreams = true
+  useJUnitPlatform()
+  systemProperty("cucumber.junit-platform.naming-strategy", "long")
+  testLogging.showStandardStreams = true
+  jvmArgs += [
+    "-javaagent:${configurations.testRuntimeClasspath.find { it.name.contains('mockito-core') }.absolutePath}"
+  ]
 }
 
 dockerCompose.isRequiredBy(test)
 dockerCompose {
-    useComposeFiles = ['src/test/resources/compose.yaml']
+  useComposeFiles = ['src/test/resources/compose.yaml']
 }
 
 springBoot {
-    buildInfo()
+  buildInfo()
 }
