@@ -20,7 +20,7 @@ repositories {
 // only var-assignment method recognised by Dependabot,
 // see https://github.com/dependabot/dependabot-core/issues/1618
 def springBootVersion = "4.0.1"
-def cukeVersion = "7.23.0"
+def cukeVersion = "7.33.0"
 def springdocVersion = "3.0.0"
 def jUnitVersion = "6.0.0"
 def mockitoVersion = "5.5.0"
