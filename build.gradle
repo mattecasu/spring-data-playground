@@ -25,7 +25,7 @@ def springdocVersion = "3.0.0"
 def jUnitVersion = "6.0.0"
 def mockitoVersion = "5.5.0"
 def commonsLangVersion = "3.17.0"
-def guavaVersion = "33.4.8-jre"
+def guavaVersion = "33.5.0-jre"
 
 dependencies {
 
